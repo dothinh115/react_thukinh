@@ -15,7 +15,7 @@ body{
 }
 .vglasses__left .col-4{
   align-self: center;
-  padding: 5px 0;
+  padding: 15px 0;
 }
 .vglasses__left .col-4 img {
   width: 80%;
@@ -34,7 +34,6 @@ body{
   background-position: center top;
   background-size: cover;
   height: 600px;
-  
 }
 
 .vglasses__model img{

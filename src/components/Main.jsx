@@ -72,10 +72,6 @@ export default class Main extends Component {
         button: "none"
     }
 
-    showPreviewGlass = () => {
-        return <img src={this.state.url} alt="" style={{display: this.state.display}} />;
-    }
-
     beforeButton = () => {
         this.setState({
             display: "none"
@@ -126,7 +122,7 @@ export default class Main extends Component {
                                 <button className="btn btn-warning" onClick={this.afterButton} style={{"display" : this.state.button}}>After</button>
                             </div>
                             <div className="vglasses__model" id="avatar">
-                                {this.showPreviewGlass()}
+                                <img src={this.state.url} alt="" style={{display: this.state.display}} />
                             </div>
                             <div id="glassesInfo" className="vglasses__info" style={{"display" : this.state.button}}>
                                 <h3>{this.state.name}</h3>
