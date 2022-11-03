@@ -84,18 +84,23 @@ export default class Main extends Component {
         });
     }
 
+    makeChange = id => {
+        let item = this.arr.find(i => i.id === id);
+        this.setState({
+            price: item.price,
+            name: item.name,
+            desc: item.desc,
+            url: item.url,
+            display: "block",
+            button: "inline-block"
+        });
+    }
+
     renderGlasses = () => {
         return this.arr.map((item) => {
             return <div className="col-4">
                 <img src={item.url} alt="" onClick={() => {
-                    this.setState({
-                        price: item.price,
-                        name: item.name,
-                        desc: item.desc,
-                        url: item.url,
-                        display: "block",
-                        button: "inline-block"
-                    });
+                    this.makeChange(item.id);
                 }}/>
             </div>;
         });
