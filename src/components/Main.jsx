@@ -100,7 +100,7 @@ export default class Main extends Component {
 
     renderGlasses = () => {
         return this.arr.map((item, index) => {
-            return <Image data={item} index={index} click={this.makeChange} active={this.state.id}/>
+            return <Image data={item} key={index} click={this.makeChange} active={this.state.id}/>
         });
     }
 
