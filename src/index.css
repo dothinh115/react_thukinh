@@ -21,6 +21,13 @@ body{
   width: 80%;
   cursor: pointer;
 }
+
+.vglasses__left .active {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 .vglasses__items{
   cursor: pointer;
 }
@@ -30,7 +37,7 @@ body{
 }
 
 .vglasses__model{
-  background-image: url('./img/model.jpg');
+  background-image: url('../public/img/model.jpg');
   background-position: center top;
   background-size: cover;
   height: 600px;

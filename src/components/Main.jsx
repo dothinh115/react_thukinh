@@ -88,6 +88,7 @@ export default class Main extends Component {
     makeChange = id => {
         let item = this.arr.find(i => i.id === id);
         this.setState({
+            id,
             price: item.price,
             name: item.name,
             desc: item.desc,
@@ -99,7 +100,7 @@ export default class Main extends Component {
 
     renderGlasses = () => {
         return this.arr.map((item, index) => {
-            return <Image data={item} index={index} click={this.makeChange}/>
+            return <Image data={item} index={index} click={this.makeChange} active={this.state.id}/>
         });
     }
 
