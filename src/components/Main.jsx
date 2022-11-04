@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Image from './Image';
 
 export default class Main extends Component {
     arr = [
@@ -6,63 +7,63 @@ export default class Main extends Component {
             "id": 1,
             "price": 30,
             "name": "GUCCI G8850U",
-            "url": `${require('../img/v1.png')}`,
+            "url": './img/v1.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 2,
             "price": 50,
             "name": "GUCCI G8759H",
-            "url": `${require('../img/v2.png')}`,
+            "url": './img/v2.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 3,
             "price": 30,
             "name": "DIOR D6700HQ",
-            "url": `${require('../img/v3.png')}`,
+            "url": './img/v3.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 4,
             "price": 70,
             "name": "DIOR D6005U",
-            "url": `${require('../img/v4.png')}`,
+            "url": './img/v4.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 5,
             "price": 40,
             "name": "PRADA P8750",
-            "url": `${require('../img/v5.png')}`,
+            "url": './img/v5.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 6,
             "price": 60,
             "name": "PRADA P9700",
-            "url": `${require('../img/v6.png')}`,
+            "url": './img/v6.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 7,
             "price": 80,
             "name": "FENDI F8750",
-            "url": `${require('../img/v7.png')}`,
+            "url": './img/v7.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 8,
             "price": 100,
             "name": "FENDI F8500",
-            "url": `${require('../img/v8.png')}`,
+            "url": './img/v8.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         },
         {
             "id": 9,
             "price": 60,
             "name": "FENDI F4300",
-            "url": `${require('../img/v9.png')}`,
+            "url": './img/v9.png',
             "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
         }
     ];
@@ -97,13 +98,23 @@ export default class Main extends Component {
     }
 
     renderGlasses = () => {
-        return this.arr.map((item) => {
-            return <div className="col-4">
-                <img src={item.url} alt="" onClick={() => {
-                    this.makeChange(item.id);
-                }}/>
-            </div>;
+        return this.arr.map((item, index) => {
+            return <Image data={item} index={index} click={this.makeChange}/>
         });
+    }
+
+    button = () => {
+        if(this.state.name) {
+            let data = [
+                <button className='btn btn-warning' onClick={() => {
+                    this.beforeButton();
+                }}>Before</button>,
+                <button className='btn btn-warning' onClick={() => {
+                    this.afterButton();
+                }}>After</button>
+            ];
+            return data;
+        }
     }
 
     render() {
@@ -123,8 +134,7 @@ export default class Main extends Component {
                     <div className="col-5 vglasses__right p-0">
                         <div className="vglasses__card">
                             <div className="mb-2 text-right mt-2 mr-2">
-                                <button className="btn btn-warning" onClick={this.beforeButton} style={{"display" : this.state.button}}>Before</button>
-                                <button className="btn btn-warning" onClick={this.afterButton} style={{"display" : this.state.button}}>After</button>
+                                {this.button()}
                             </div>
                             <div className="vglasses__model" id="avatar">
                                 <img src={this.state.url} alt="" style={{display: this.state.display}} />
