@@ -86,13 +86,13 @@ export default class Main extends Component {
     }
 
     makeChange = id => {
-        let item = this.arr.find(i => i.id === id);
+        let {price, name, desc, url} = this.arr.find(i => i.id === id);
         this.setState({
             id,
-            price: item.price,
-            name: item.name,
-            desc: item.desc,
-            url: item.url,
+            price,
+            name,
+            desc,
+            url,
             display: "block",
             button: "inline-block"
         });
